@@ -5,14 +5,14 @@
 // Example: accepts 110 (=6)
 
 // ------- States -----------|
-// q0 - mod3 == 0            |
-// q1 - mod3 == 1            |
-// q2 - mod3 == 2            |
-// qHalt - halting state     |
+// q0 : mod3 == 0            |
+// q1 : mod3 == 1            |
+// q2 : mod3 == 2            |
+// qAccept : halting state   |
 // --------------------------|
 
 init: q0
-halt: qHalt
+halt: qAccept
 
 q0,0,q0,0,>
 
@@ -26,4 +26,4 @@ q2,0,q1,0,>
 
 q2,1,q2,1,>
 
-q0,_,qHalt,_,-
+q0,_,qAccept,_,-
