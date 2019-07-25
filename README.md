@@ -1,6 +1,6 @@
 # Turing Machine Simulator
 
-| Status | Status | Coverage |
+| Travis Status | AppVeyor Status | Cpde Test Coverage |
 | :----: | :----: | :----: |
 | [![Travis Build Status](https://travis-ci.org/tfburns/TuringMachine.jl.svg?branch=master)](https://travis-ci.org/tfburns/TuringMachine.jl) | [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tfburns/TuringMachine.jl?branch=master&svg=true)](https://ci.appveyor.com/api/projects/status/github/tfburns/TuringMachine.jl?branch=master) | [![codecov.io](http://codecov.io/github/tfburns/TuringMachine.jl/coverage.svg?branch=master)](http://codecov.io/github/tfburns/TuringMachine.jl?branch=master) |
 
