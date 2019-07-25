@@ -2,7 +2,7 @@
 
 | Travis Status | AppVeyor Status | Code Test Coverage |
 | :----: | :----: | :----: |
-| [![Travis Build Status](https://travis-ci.org/tfburns/TuringMachine.jl.svg?branch=master)](https://travis-ci.org/tfburns/TuringMachine.jl) | [!AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tfburns/TuringMachine-jl) | [![codecov.io](http://codecov.io/github/tfburns/TuringMachine.jl/coverage.svg?branch=master)](http://codecov.io/github/tfburns/TuringMachine.jl?branch=master) |
+| [![Travis Build Status](https://travis-ci.org/tfburns/TuringMachine.jl.svg?branch=master)](https://travis-ci.org/tfburns/TuringMachine.jl) | ![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/tfburns/TuringMachine-jl) | [![codecov.io](http://codecov.io/github/tfburns/TuringMachine.jl/coverage.svg?branch=master)](http://codecov.io/github/tfburns/TuringMachine.jl?branch=master) |
 
 Turing machines were invented in 1936 by British mathematician and computing pioneer Alan Turing. They are machines which can compute any algorithm. Granted, they may be verbose or inefficient compared to other computing strategies, but nevertheless they are capable of computing arbitrary algorithms.
 
