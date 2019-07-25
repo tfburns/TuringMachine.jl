@@ -1,0 +1,34 @@
+// Binary numbers divisible by 3
+
+// Input:   a binary number n
+// Output:  accepts if n mod 3 == 0
+//          rejects if n mod 3 != 0
+
+// ----------- States --------------|
+// q0 :       mod3 == 0             |
+// q1 :       mod3 == 1             |
+// q2 :       mod3 == 2             |
+// qAccept :  halting accept state  |
+// qReject :  halting reject state  |
+// ---------------------------------|
+
+init: q0
+halt: qAccept
+
+q0,0,q0,0,>
+
+q0,1,q1,1,>
+
+q1,0,q2,0,>
+
+q1,1,q0,1,>
+
+q2,0,q1,0,>
+
+q2,1,q2,1,>
+
+q0,_,qAccept,_,-
+
+q1,_,qReject,_,-
+
+q2,_,qReject,_,-

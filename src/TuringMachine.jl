@@ -1,5 +1,7 @@
-using DataStructures
-using DelimitedFiles
+module TuringMachine
+export load_input, load_program, set_up, simulate
+
+using DataStructures, DelimitedFiles
 
 """
     load_input(file_name)
@@ -181,3 +183,6 @@ function simulate(state, program, tape_left, tape_right)
     tape_left, tape_right = write_move!(movement, write_cell, tape_left, tape_right)
     return state, tape_left, tape_right
 end
+
+
+end # module
