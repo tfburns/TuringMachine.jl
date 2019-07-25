@@ -1,4 +1,4 @@
-# Turing Machine Simulator
+# Turing Machine Simulator v0.1.0
 
 | Travis Status | AppVeyor Status | Code Test Coverage |
 | :----: | :----: | :----: |
