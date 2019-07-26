@@ -59,7 +59,7 @@ end
 """
     set_up(init_state, input)
 
-Performs initial set-up for the simulation of single tape. The `length(input)` must be equal of greater
+Performs initial set-up for the simulation of single tape. The `length(input)` must be equal or greater
 than 1. The input will be placed on tape to the right of the head.
 
 Input
