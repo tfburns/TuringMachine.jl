@@ -12,6 +12,15 @@ function perceptron(inputs, weights, bias)
 end
 
 """
+    perceptron_store(x)
+
+Computes the identity of a binary input `x`.
+"""
+function perceptron_store(x)
+    return perceptron(x,1,0)
+end
+
+"""
     not_gate(x)
 
 Computes ¬`x` using a perceptron with constructed biases and weights.
@@ -85,22 +94,54 @@ end
     mux_gate(x,y,s)
 
 Computes (`x`∧¬`s`)∨(`y`∧`s`), thus outputting whatever the value `x` or `y` is
-based on the selection of `s`. This is computed using NAND gates
+based on the selection of `s`. This is computed using NAND gates.
 """
 function mux_gate(x,y,s)
-    nand_1 = 
+    nand_s = nand_gate(s,s)
+    nand_x = nand_gate(x,nand_s)
+    nand_y = nand_gate(y,s)
+    return nand_gate(nand_x,nand_y)
 end
 
 """
-    bitwise_prod(x,y)
+    demux_gate(x,s)
 
-Computes the bitwise product of `x` and `y` using NAND gates.
+Computes the inverse of mux_gate, thus outputting the value `x` in position `a` or `b`
+based on the selection of `s`. This is computed using NAND gates.
 """
-function bitwise_prod(x,y)
+function demux_gate(x,s)
+    nand_s = nand_gate(s,s)
+    nand_1_a = nand_gate(x,nand_s)
+    nand_1_b = nand_gate(x,s)
+    a = nand_gate(nand_1_a,nand_1_a)
+    b = nand_gate(nand_1_b,nand_1_b)
+    return a, b
+end
+
+"""
+    bit_sum(x,y)
+
+Computes the bitwise sum of `x` and `y` using NAND gates.
+"""
+function bit_sum(x,y)
     nand_1 = nand_gate(x,y)
     nand_2_x = nand_gate(x,nand_1)
     nand_2_y = nand_gate(y,nand_1)
-    prod = nand_gate(nand_2_x,nand_2_y)
+    sum = nand_gate(nand_2_x,nand_2_y)
+    carry = nand_gate(nand_1,nand_1)
+    return sum, carry
+end
+
+"""
+    bit_prod(x,y)
+
+Computes the bitwise product of `x` and `y` using NAND and XOR gates.
+"""
+function bit_prod(x,y)
+    nand_1 = nand_gate(x,y)
+    nand_2_x = nand_gate(x,nand_1)
+    nand_2_y = nand_gate(y,nand_1)
+    prod = xor_gate(nand_2_x,nand_2_y)
     carry = nand_gate(nand_1,nand_1)
     return prod, carry
 end
