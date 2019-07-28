@@ -36,6 +36,7 @@ Computes `x`∧`y` using a perceptron with constructed biases and weights.
 """
 function and_gate(x,y)
     return perceptron([x,y],1,-1)
+end
 
 """
     or_gate(x,y)
