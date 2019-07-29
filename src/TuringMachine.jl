@@ -2,6 +2,8 @@ module TuringMachine
 export load_input, load_program, set_up, simulate
 
 using DataStructures, DelimitedFiles
+include("ConstructedPerceptrons.jl")
+include("CPerceptronsTuringMachine.jl")
 
 """
     load_input(file_name)
