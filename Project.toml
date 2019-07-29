@@ -3,6 +3,9 @@ uuid = "d406e672-ae96-11e9-2f05-a59ccbfcb275"
 authors = ["tfburns <t.f.burns@gmail.com>"]
 version = "0.1.0"
 
+[compat]
+julia = "1.1.1"
+
 [deps]
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
