@@ -95,7 +95,7 @@ Input
 Output
 - `read_cell`::String : value for the current cell being read by the head
 """
-function read_tape(tape_right)
+function read_tape(tape_right::Deque{Int})
     read_cell = front(tape_right)
     return read_cell
 end
@@ -136,7 +136,7 @@ Outputs
 - `tape_left`::Deque{Int} : updated values for the stack to the left of the head (after writing/movement)
 - `tape_right`::Deque{Int} : updated values for the stack to the right of the head (after writing/movement)
 """
-function write_move!(movement, write_cell, tape_left, tape_right)
+function write_move!(movement, write_cell, tape_left::Deque{Int}, tape_right::Deque{Int})
     if isempty(tape_right)
         return tape_left, tape_right
     end
@@ -176,7 +176,7 @@ Outputs
 - `tape_left`::Deque{Int} : updated values for the stack to the left of the head after one simulation step
 - `tape_right`::Deque{Int} : updated values for the stack to the right of the head after one simulation step
 """
-function simulate(state, program, tape_left, tape_right)
+function simulate(state, program, tape_left::Deque{Int}, tape_right::Deque{Int})
     if isempty(tape_right)
         read_cell = "_"
     else

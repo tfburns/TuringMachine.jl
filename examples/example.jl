@@ -13,6 +13,8 @@ while true
     try
         global state, tape_left, tape_right = simulate(state, program, tape_left, tape_right)
         println(state)
+        println(tape_left)
+        println(tape_right)
         state ==("qAccept") && break
         state ==("qReject") && break
     catch err
