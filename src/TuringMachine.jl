@@ -93,7 +93,7 @@ Output
 - `read_cell`::String : value for the current cell being read by the head
 """
 function read_tape(tape_right)
-    read_cell = front(tape_right)
+    read_cell = first(tape_right)
     return read_cell
 end
 
@@ -134,25 +134,30 @@ Outputs
 - `tape_right`::Deque{Int} : updated values for the stack to the right of the head (after writing/movement)
 """
 function write_move!(movement, write_cell, tape_left, tape_right)
-    if isempty(tape_right)
-        return tape_left, tape_right
+    # if the tape is empty, don't do anything yet
+    # if the tape is not empty, pop the first value to be replaced with the value in write_cell
+    checkme = false
+    if (!isempty(tape_right))
+        popfirst!(tape_right)
+        checkme = true
     end
-    popfirst!(tape_right)
-    pushfirst!(tape_right, parse(Int, write_cell))
-    if movement == "<"
-        if isempty(tape_left)
-            pushfirst!(tape_right, "_")
+        
+    # if the next element of the tape to be accessed is to the left, push the write_cell value to the right
+    # tape and pop the element on the left tape and push it to the right tape
+    
+    # if the next element of the tape to be accessed is to the right, push write_cell to the left tape 
+            
+    if (movement == "<")
+        pushfirst!(tape_right, parse(Int, write_cell))
+    
+        if (isempty(tape_left))
+            pushfirst!(tape_right, 2)
         else
             carry = pop!(tape_left)
             pushfirst!(tape_right, carry)
         end
     elseif movement == ">"
-        if isempty(tape_right)
-            push!(tape_left, "_")
-        else
-            carry = popfirst!(tape_right)
-            push!(tape_left, carry)
-        end
+        push!(tape_left, parse(Int, write_cell))
     end
     return tape_left, tape_right
 end
